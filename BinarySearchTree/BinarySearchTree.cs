@@ -65,6 +65,25 @@ namespace BinarySearchTree
             }
             Console.WriteLine("\nSize of tree is : " + treeSize);
         }
+
+        public void SearchTree(Node<T> newNode, int value)
+        {
+            if (null == newNode)
+            {
+                Console.WriteLine("{0} is Not Present in BST", value);
+            }
+            //found
+            else if (newNode.NodeData == value)
+            {
+                Console.WriteLine("{0} is Present in BST", value);
+            }
+            //left tree
+            else if (value < newNode.NodeData)
+                SearchTree(newNode.LeftTree, value);
+            //right tree
+            else
+                SearchTree(newNode.RightTree, value);
+        }
         public void Traverse(Node<T> Root)
         {
             if (Root != null)
